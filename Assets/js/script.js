@@ -15,7 +15,18 @@ function showWeather(event){
     event.preventDefault();
     
     cityName = searchBarElement.val();
-    
+    getCityCoords(cityName);
+}
+
+function getCityCoords(cityName){
+    fetch(locationByNameUrlBase + '&q=' + cityName)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+            getCityWeather(data[0].lat, data[0].lon);
+            
+        })
 }
 //when a city is typed into a search bar
 //collect that value
