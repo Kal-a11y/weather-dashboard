@@ -15,6 +15,11 @@ function showWeather(event){
     event.preventDefault();
     
     cityName = searchBarElement.val();
+    
+    if (cityName === ''){
+        console.log('TODO: Alert or toast to show invalid input')
+        return
+    }
     getCityCoords(cityName);
 }
 
