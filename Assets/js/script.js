@@ -6,9 +6,7 @@ const searchBtnElement = $('#city-search-button')
 const weatherApiKey = '923a850bd61fc38e956f15c51f45cfe2';
 
 //Api call urls
-const weatherApiUrl = 'http://api.openweathermap.org/geo/1.0/direct'
-// + '?q=' + cityName;
-+ '&appid=' + weatherApiKey;
+const weatherApiUrlBase = 'https://api.openweathermap.org/data/3.0/onecall/timemachine?appid=' + weatherApiKey;
 
 //when a city is typed into a search bar
 //collect that value
