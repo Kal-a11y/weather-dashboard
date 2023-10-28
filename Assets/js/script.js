@@ -35,9 +35,9 @@ function showWeather(event){
             $('#city-name').text(cityName.toUpperCase())
             $('#today-date').text(new Date(data.dt * 1000).toDateString())
             $('#weather-visual').attr('src',`https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
-            $('#temp-value').text(data.main.temp);
-            $('#wind-value').text(data.wind.speed)
-            $('#humidity-value').text(data.main.humidity);
+            $('#temp-value').text(data.main.temp + ' °F');
+            $('#wind-value').text(data.wind.speed + ' MPH')
+            $('#humidity-value').text(data.main.humidity + ' %');
         })
 }
 function showForcastWeather(cityName){
@@ -49,7 +49,7 @@ function showForcastWeather(cityName){
     })
     .then(function(data){
         for (let i = 0; i < 5; i++) {
-            const myTest = $(`<div class="card col-2" ><p><strong>${new Date(data.list[i*8].dt * 1000).toDateString()}</strong></p><p><span></span></p><ul><li>Temp: ${data.list[i*8].main.temp}</li><li>Wind: ${data.list[i*8].wind.speed}</li><li>Humidity: ${data.list[i*8].main.humidity}</li></ul></div>`)
+            const myTest = $(`<div class="card col-2" ><p><strong>${new Date(data.list[i*8].dt * 1000).toDateString()}</strong></p><img src="https://openweathermap.org/img/w/${data.list[i*8].weather[0].icon}.png"></img><ul><li>Temp: ${data.list[i*8].main.temp + ' °F'}</li><li>Wind: ${data.list[i*8].wind.speed + ' MPH'}</li><li>Humidity: ${data.list[i*8].main.humidity + ' %'}</li></ul></div>`)
 
             $('#forcast-box').append(myTest);
 
