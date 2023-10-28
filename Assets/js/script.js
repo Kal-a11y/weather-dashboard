@@ -43,7 +43,7 @@ function showWeather(event){
 function showForcastWeather(cityName){
     $('#forcast-box').empty();
 
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${weatherApiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${weatherApiKey}&units=imperial`)
     .then(function(response){
         return response.json()
     })
