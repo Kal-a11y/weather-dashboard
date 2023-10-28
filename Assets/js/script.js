@@ -20,16 +20,20 @@ function showWeather(event){
         console.log('TODO: Alert or toast to show invalid input')
         return
     }
-    getCityCoords(cityName);
-}
+     showTodayWeather(cityName);
 
-function getCityCoords(cityName){
-    fetch(locationByNameUrlBase + '&q=' + cityName)
+     
+    }
+    
+    function showTodayWeather(cityName){
+        fetch(weatherApiUrlBase + '&q=' + cityName)
         .then(function(response){
             return response.json()
         })
         .then(function(data){
-            getCityWeather(data[0].lat, data[0].lon);
+            $('#temp-value').text(data.main.temp);
+            $('#wind-value').text(data.wind.speed)
+            $('#humidity-value').text(data.main.humidity);
             
         })
 }
