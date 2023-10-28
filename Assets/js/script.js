@@ -48,7 +48,6 @@ function showForcastWeather(cityName){
         return response.json()
     })
     .then(function(data){
-        console.log(data)
         for (let i = 0; i < 5; i++) {
             const myTest = $(`<div class="card col-2" ><p><strong>${new Date(data.list[i*8].dt * 1000).toDateString()}</strong></p><p><span></span></p><ul><li>Temp: ${data.list[i*8].main.temp}</li><li>Wind: ${data.list[i*8].wind.speed}</li><li>Humidity: ${data.list[i*8].main.humidity}</li></ul></div>`)
 
