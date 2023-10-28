@@ -21,6 +21,7 @@ function showWeather(event){
         return
     }
      showTodayWeather(cityName);
+     showForcastWeather(cityName);
 
      
     }
@@ -34,8 +35,25 @@ function showWeather(event){
             $('#temp-value').text(data.main.temp);
             $('#wind-value').text(data.wind.speed)
             $('#humidity-value').text(data.main.humidity);
-            
         })
+}
+function showForcastWeather(cityName){
+    $('#forcast-box').empty();
+
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${weatherApiKey}`)
+    .then(function(response){
+        return response.json()
+    })
+    .then(function(data){
+        console.log(data)
+        for (let i = 0; i < 5; i++) {
+            const myTest = $(`<div class="card col-2" ><p><strong>${new Date(data.list[i*8].dt * 1000).toDateString()}</strong></p><p><span></span></p><ul><li>Temp: ${data.list[i*8].main.temp}</li><li>Wind: ${data.list[i*8].wind.speed}</li><li>Humidity: ${data.list[i*8].main.humidity}</li></ul></div>`)
+
+            $('#forcast-box').append(myTest);
+
+            
+        }
+    })
 }
 //when a city is typed into a search bar
 //collect that value
