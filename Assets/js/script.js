@@ -32,6 +32,9 @@ function showWeather(event){
             return response.json()
         })
         .then(function(data){
+            $('#city-name').text(cityName.toUpperCase())
+            $('#today-date').text(new Date(data.dt * 1000).toDateString())
+            $('#weather-visual').attr('src',`https://openweathermap.org/img/w/${data.weather[0].icon}.png`);
             $('#temp-value').text(data.main.temp);
             $('#wind-value').text(data.wind.speed)
             $('#humidity-value').text(data.main.humidity);
