@@ -24,6 +24,9 @@ function showWeather(event){
      showForcastWeather(cityName);
 
      
+     let myButton = $('<button>', {type: 'button', class:'btn btn-outline-primary historyData', id:`${cityName.toLowerCase()}Btn`}).text(cityName.toUpperCase())
+
+    $('#history-list').append(myButton)    
     }
     
     function showTodayWeather(cityName){
