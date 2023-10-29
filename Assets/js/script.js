@@ -44,7 +44,7 @@ function addCityHistoryBtn() {
 
     }
 
-    cityBtn.on('click',function(){
+    cityBtn.on('click', function () {
         showTodayWeather(this.textContent);
         showForcastWeather(this.textContent)
     })
@@ -82,11 +82,6 @@ function showForcastWeather(cityName) {
         })
 }
 
-//When city button is clicked, Then display city data that was stored
-//When button is created then give id = cityName.toLowerCase + 'Btn and class = historyData
-//create #history-list.on('click',.historyData, function(event))
-//set let name = this.text()
-//call storage for name
-//display data
+
 
 
