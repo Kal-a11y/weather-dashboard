@@ -19,6 +19,7 @@ function showWeather(event) {
 
     if (cityName === '') {
         console.log('TODO: Alert or toast to show invalid input')
+        window.alert('You need to put in a city name')
         return
     }
     showTodayWeather(cityName);
