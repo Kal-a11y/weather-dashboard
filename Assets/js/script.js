@@ -11,6 +11,7 @@ const locationByNameUrlBase = 'http://api.openweathermap.org/geo/1.0/direct?appi
 
 searchBtnElement.on('click', showWeather)
 
+//Main working function
 function showWeather(event) {
     event.preventDefault();
 
@@ -27,12 +28,16 @@ function showWeather(event) {
     addCityHistoryBtn(cityName);
 }
 
+//Add button for city
 function addCityHistoryBtn() {
+    //create a button with data
     let cityBtn = $('<button>', { type: 'button', class: 'btn btn-outline-primary historyData col-12', id: `${cityName.toLowerCase().replace(' ', '')}Btn` }).text(cityName.toUpperCase())
 
+    //Added button to list
     $('#history-list').append(cityBtn)
     let historyList = $('#history-list').children()
 
+    //Check if new button already exists in list
     for (let index = 0; index < historyList.length; index++) {
         let lastIndex = historyList.length - 1;
 
@@ -44,12 +49,14 @@ function addCityHistoryBtn() {
 
     }
 
+    //Add event listener for button
     cityBtn.on('click', function () {
         showTodayWeather(this.textContent);
         showForcastWeather(this.textContent)
     })
 }
 
+//Get and show today's weather data
 function showTodayWeather(cityName) {
     fetch(weatherApiUrlBase + '&q=' + cityName)
         .then(function (response) {
@@ -64,6 +71,8 @@ function showTodayWeather(cityName) {
             $('#humidity-value').text(data.main.humidity + ' %');
         })
 }
+
+//Get and show 5-day weather data
 function showForcastWeather(cityName) {
     $('#forcast-box').empty();
 
@@ -72,9 +81,13 @@ function showForcastWeather(cityName) {
             return response.json()
         })
         .then(function (data) {
+            //For 5 cards
             for (let i = 0; i < 5; i++) {
+                
+                //Create this element card with nested elements
                 const myTest = $(`<div class="card col-2" id="forcast-day-${i}"><p><strong>${new Date(data.list[i * 8].dt * 1000).toDateString()}</strong></p><img src="https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png"></img><ul><li>Temp: ${data.list[i * 8].main.temp + ' °F'}</li><li>Wind: ${data.list[i * 8].wind.speed + ' MPH'}</li><li>Humidity: ${data.list[i * 8].main.humidity + ' %'}</li></ul></div>`)
 
+                //Show card to screen
                 $('#forcast-box').append(myTest);
 
 
