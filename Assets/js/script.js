@@ -24,9 +24,26 @@ function showWeather(event){
      showForcastWeather(cityName);
 
      
-     let myButton = $('<button>', {type: 'button', class:'btn btn-outline-primary historyData', id:`${cityName.toLowerCase()}Btn`}).text(cityName.toUpperCase())
+     addCityHistoryBtn(cityName) ;
+    }
 
-    $('#history-list').append(myButton)    
+    function addCityHistoryBtn(){
+        let cityBtn = $('<button>', {type: 'button', class:'btn btn-outline-primary historyData col-12', id:`${cityName.toLowerCase().replace(' ','')}Btn`}).text(cityName.toUpperCase())
+     
+        $('#history-list').append(cityBtn)
+        let historyList = $('#history-list').children()
+
+        for (let index = 0; index < historyList.length; index++) {
+            let lastIndex = historyList.length - 1;
+            
+            if (historyList[index].id === historyList[lastIndex].id ){
+                if (index !== lastIndex){
+                    historyList[lastIndex].remove();
+                }
+            }
+            
+        }
+        
     }
     
     function showTodayWeather(cityName){
