@@ -78,11 +78,6 @@ function showForcastWeather(cityName) {
         })
 }
 
-//When search is clicked, Then add button with city name in list
-//When city is already in list, Then dont add button of same city
-//loop throuch children in list
-//if button.text() === current cityName then dont add button
-//else add button
 //When city button is clicked, Then display city data that was stored
 //When button is created then give id = cityName.toLowerCase + 'Btn and class = historyData
 //create #history-list.on('click',.historyData, function(event))
