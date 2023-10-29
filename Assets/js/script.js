@@ -44,6 +44,10 @@ function addCityHistoryBtn() {
 
     }
 
+    cityBtn.on('click',function(){
+        showTodayWeather(this.textContent);
+        showForcastWeather(this.textContent)
+    })
 }
 
 function showTodayWeather(cityName) {
