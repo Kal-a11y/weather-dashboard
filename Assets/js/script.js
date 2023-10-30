@@ -86,7 +86,7 @@ function showForcastWeather(cityName) {
             for (let i = 0; i < 5; i++) {
                 
                 //Create this element card with nested elements
-                const myTest = $(`<div class="card col-2" id="forcast-day-${i}"><p><strong>${new Date(data.list[i * 8].dt * 1000).toDateString()}</strong></p><img src="https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png"></img><ul><li>Temp: ${data.list[i * 8].main.temp + ' °F'}</li><li>Wind: ${data.list[i * 8].wind.speed + ' MPH'}</li><li>Humidity: ${data.list[i * 8].main.humidity + ' %'}</li></ul></div>`)
+                const myTest = $(`<div class="card col-2 text-white gradient-bg" id="forcast-day-${i}"><p><strong>${new Date(data.list[i * 8].dt * 1000).toDateString()}</strong></p><img src="https://openweathermap.org/img/w/${data.list[i * 8].weather[0].icon}.png"></img><ul><li>Temp: ${data.list[i * 8].main.temp + ' °F'}</li><li>Wind: ${data.list[i * 8].wind.speed + ' MPH'}</li><li>Humidity: ${data.list[i * 8].main.humidity + ' %'}</li></ul></div>`)
 
                 //Show card to screen
                 $('#forcast-box').append(myTest);

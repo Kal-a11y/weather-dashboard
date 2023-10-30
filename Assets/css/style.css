@@ -2,3 +2,13 @@ ul {
     list-style: none;
     padding-left: 0px;
 }
+
+.gradient-bg{
+    background: linear-gradient(45deg,lightblue,blue,indigo);
+}
+.blue-bg{
+    background-color: lightblue;
+}
+img{
+    max-width: 70px;
+}
