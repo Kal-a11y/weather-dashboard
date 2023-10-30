@@ -10,8 +10,8 @@ Users can look up city names in the search bar. When search is clicked the weath
 
 ## The Code
 
-![Example image 1 of Work schedule Page](./assets/images/example-img-1.PNG)
-![Example image 2 of Work schedule Page](./assets/images/example-img-2.PNG)
+![Example image 1 of Work schedule Page](./Assets/images/example-img-1.PNG)
+![Example image 2 of Work schedule Page](./Assets/images/example-img-2.PNG)
 
 ## License
 
