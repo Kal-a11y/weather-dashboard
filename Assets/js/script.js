@@ -27,6 +27,7 @@ function showWeather(event) {
 
 
     addCityHistoryBtn(cityName);
+    searchBarElement.val('')
 }
 
 //Add button for city
