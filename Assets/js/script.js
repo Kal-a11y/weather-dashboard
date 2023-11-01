@@ -92,11 +92,29 @@ function showForcastWeather(cityName) {
                 //Show card to screen
                 $('#forcast-box').append(myTest);
 
-
             }
+            saveWeather(data)
         })
 }
 
 
+function saveWeather(data){
+    // console.log(data)
+    let city = data.city.name
+    let forcast = []
+    for (let i = 0; i < 5; i++) {
+       let day = {
+        date: new Date(data.list[i * 8].dt * 1000).toDateString(),
+        icon: data.list[i * 8].weather[0].icon,
+        temp: data.list[i * 8].main.temp + ' °F',
+        wind: data.list[i * 8].wind.speed + ' MPH',
+        humidity: data.list[i * 8].main.humidity + ' %'
+       }
+
+       forcast.push(day)  
+    }
+
+    localStorage.setItem(city,JSON.stringify(forcast))
+}
 
 
