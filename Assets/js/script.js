@@ -53,8 +53,7 @@ function addCityHistoryBtn() {
 
     //Add event listener for button
     cityBtn.on('click', function () {
-        showTodayWeather(this.textContent);
-        showForcastWeather(this.textContent)
+        retrieveSavedWeather(this.textContent)
     })
 }
 
@@ -115,6 +114,31 @@ function saveWeather(data){
     }
 
     localStorage.setItem(city,JSON.stringify(forcast))
+}
+
+function retrieveSavedWeather(cityName){
+    $('#forcast-box').empty();
+    let forcast = JSON.parse(localStorage.getItem(cityName));
+    
+    //Shows today's weather
+    $('#city-name').text(cityName)
+    $('#today-date').text(forcast[0].date)
+    $('#weather-visual').attr('src', `https://openweathermap.org/img/w/${forcast[0].icon}.png`);
+    $('#temp-value').text(forcast[0].temp);
+    $('#wind-value').text(forcast[0].wind)
+    $('#humidity-value').text(forcast[0].humidity);
+    
+    for (let i = 0; i < 5; i++) {
+                
+        //Shows 5 day forcast weather
+        const myTest = $(`<div class="card col-2 text-white gradient-bg" id="forcast-day-${i}"><p><strong>${forcast[i].date}</strong></p><img src="https://openweathermap.org/img/w/${forcast[i].icon}.png"></img><ul><li>Temp: ${forcast[i].temp}</li><li>Wind: ${forcast[i].wind}</li><li>Humidity: ${forcast[i].humidity}</li></ul></div>`)
+
+        //Show card to screen
+        $('#forcast-box').append(myTest);
+        
+
+    }
+
 }
 
 
