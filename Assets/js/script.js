@@ -100,7 +100,7 @@ function showForcastWeather(cityName) {
 
 function saveWeather(data){
     // console.log(data)
-    let city = data.city.name
+    let city = (data.city.name).toUpperCase()
     let forcast = []
     for (let i = 0; i < 5; i++) {
        let day = {
